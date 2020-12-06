@@ -1,0 +1,94 @@
+{
+  "name": "ts-module-boilerplate",
+  "version": "0.0.0",
+  "description": "",
+  "keywords": [
+    ""
+  ],
+  "license": "MIT",
+  "repository": "GITHUB_USERNAME/ts-module-boilerplate",
+  "author": {
+    "name": "YOUR_NAME",
+    "email": "YOUR_EMAIL",
+    "url": "YOUR_WEBSITE"
+  },
+  "scripts": {
+    "dev": "nodemon",
+    "run-app": "run-p run:bot run:server",
+    "run:bot": "ts-node src/bot/index",
+    "run:server": "ts-node src/server/index",
+    "build": "del-cli dist && tsc",
+    "prepack": "yarn build",
+    "lint": "eslint . --ext ts",
+    "test": "tsc --noEmit && jest --coverage",
+    "release": "git pull && standard-version && git push --follow-tags"
+  },
+  "engines": {
+    "node": ">=12"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn test",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.ts": "eslint"
+  },
+  "dependencies": {
+    "apollo-server": "2.19.0",
+    "dotenv": "8.2.0",
+    "graphql": "15.4.0",
+    "mongoose": "5.11.4",
+    "node-telegram-bot-api": "0.50.0",
+    "nodemon": "2.0.6"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "11.0.0",
+    "@commitlint/config-conventional": "11.0.0",
+    "@lasalefamine/eslint-config-base": "0.2.4",
+    "@lasalefamine/tsconfig": "0.1.0",
+    "@types/jest": "26.0.16",
+    "@types/node": "14.14.10",
+    "@types/node-telegram-bot-api": "0.50.4",
+    "@typescript-eslint/eslint-plugin": "4.9.0",
+    "@typescript-eslint/parser": "4.9.0",
+    "del-cli": "3.0.1",
+    "eslint": "7.15.0",
+    "eslint-plugin-import": "2.22.1",
+    "husky": "4.3.4",
+    "jest": "26.6.3",
+    "lint-staged": "10.5.3",
+    "npm-run-all": "4.1.5",
+    "rimraf": "3.0.2",
+    "standard-version": "9.0.0",
+    "ts-jest": "26.4.4",
+    "ts-node": "9.1.0",
+    "typescript": "4.1.2"
+  },
+  "files": [
+    "dist/src",
+    "!*.test.*"
+  ],
+  "main": "dist",
+  "types": "dist",
+  "nyc": {
+    "all": true,
+    "extension": [
+      ".ts"
+    ],
+    "include": [
+      "dist/src",
+      "src"
+    ],
+    "exclude": [
+      "**/*.d.ts",
+      "**/*.test.ts"
+    ],
+    "reporter": [
+      "lcov",
+      "text"
+    ]
+  }
+}
