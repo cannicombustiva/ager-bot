@@ -1,9 +1,9 @@
-import { model, Schema } from 'mongoose';
+import { createSchema, Type, typedModel } from 'ts-mongoose';
 
-const userSchema = new Schema({
-  username: String,
-  chatId: Number,
-  is_bot: Boolean,
+const userSchema = createSchema({
+  username: Type.string(),
+  chatId: Type.number({ required: true }),
+  is_bot: Type.boolean,
 });
 
-module.exports = model('User', userSchema);
+export const User = typedModel('User', userSchema);

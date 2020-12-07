@@ -1,9 +1,9 @@
-import { model, Schema } from 'mongoose';
+import { createSchema, Type, typedModel } from 'ts-mongoose';
 
-const birthdaySchema = new Schema({
-  firstName: String,
-  lastName: String,
-  day: String,
+const birthdaySchema = createSchema({
+  firstName: Type.string(),
+  lastName: Type.string(),
+  day: Type.string(),
 });
 
-export default model('Birthday', birthdaySchema);
+export const Birthday = typedModel('Birthday', birthdaySchema);

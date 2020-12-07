@@ -1,7 +1,7 @@
 import { ApolloServer } from 'apollo-server';
 import * as mongoose from 'mongoose';
 
-import * as resolvers from './graphql/resolvers';
+import { resolvers } from './graphql/resolvers';
 import typeDefs from './graphql/type-defs';
 import { CONFIG } from '../config';
 

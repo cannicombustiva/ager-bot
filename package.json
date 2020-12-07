@@ -37,12 +37,14 @@
     "*.ts": "eslint"
   },
   "dependencies": {
+    "@types/mongoose": "5.10.2",
     "apollo-server": "2.19.0",
     "dotenv": "8.2.0",
     "graphql": "15.4.0",
     "mongoose": "5.11.4",
     "node-telegram-bot-api": "0.50.0",
-    "nodemon": "2.0.6"
+    "nodemon": "2.0.6",
+    "ts-mongoose": "0.0.24"
   },
   "devDependencies": {
     "@commitlint/cli": "11.0.0",
